@@ -3,6 +3,8 @@ title: Skills Inventory
 ---
 
 # Skills Inventory
+My paint drip *(concept from Kent Beck)* skills profile. 
+
 
 ## Technical Skills
 
