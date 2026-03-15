@@ -1,0 +1,6 @@
+
+# ignore generated website files
+_site/
+
+.jekyll-cache/
+
