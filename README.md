@@ -2,6 +2,11 @@
 
 Only markdown is an application that creates a portable and customizable way to work with markdown files. The author works with markdown heavily and wanted a visually appealing and platform agnostic way to work with markdown files. Being able to easily deploy a full website based on markdown content was another requirements.
 
+## Issues
+- CONTENT_DIR env variable doesn't seem to be honored. the skills-inventory.md is always loaded. 
+Maybe there needs to be a directory explorer view.
+
+
 ## Features
 - Dockerized Jekyll + kramdown runtime — no local Ruby install needed
 - Point at any directory of markdown files via the `CONTENT_DIR` env variable
