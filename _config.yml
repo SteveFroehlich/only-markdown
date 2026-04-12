@@ -1,12 +1,29 @@
 title: My Site
 
+exclude:
+  - compose.yaml
+  - Dockerfile
+  - docker-compose.yml
+  - docker-compose.yaml
+
 markdown: kramdown
 
 kramdown:
   input: GFM
 
+collections:
+  documents:
+    output: true
+    # Quoted so YAML does not treat `:name` as a special token.
+    permalink: "/docs/:name/"
+
 defaults:
   - scope:
       path: ""
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: documents
     values:
       layout: default

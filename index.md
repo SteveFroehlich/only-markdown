@@ -4,4 +4,4 @@ title: Home
 
 # Home
 
-- [Skills Inventory](/skills-inventory)
+- [Skills Inventory](/docs/skills-inventory/)

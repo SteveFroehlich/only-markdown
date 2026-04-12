@@ -14,6 +14,10 @@ COPY Gemfile Gemfile.lock* ./
 RUN bundle install
 
 COPY _config.yml .
+COPY _layouts ./_layouts
+COPY assets ./assets
+COPY index.md ./
+COPY _documents ./_documents
 
 EXPOSE 4000
 
