@@ -1,0 +1,21 @@
+{
+  "name": "only-markdown",
+  "version": "0.0.0",
+  "description": "Local markdown → HTML viewer with on-demand refresh",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "start:local": "DATA_DIR=./data npm start",
+    "dev": "node --watch server.js",
+    "dev:local": "DATA_DIR=./data npm run dev",
+    "build:ui": "npm --prefix ui run build",
+    "install:ui": "npm --prefix ui install",
+    "dev:ui": "npm --prefix ui run dev",
+    "setup:local": "npm run install:ui && npm run build:ui"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "markdown-it": "^14.1.0",
+    "mime-types": "^2.1.35"
+  }
+}

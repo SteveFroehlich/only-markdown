@@ -1,6 +1,14 @@
+# Dependencies
+node_modules/
 
-# ignore generated website files
+# UI build output
+public/
+!public/.gitkeep
+
+# Local sample / user markdown (tracked welcome.md is under data/ intentionally)
+# Uncomment to ignore all of data/ if you prefer:
+# data/
+
+# Legacy Jekyll artifacts
 _site/
-
 .jekyll-cache/
-
