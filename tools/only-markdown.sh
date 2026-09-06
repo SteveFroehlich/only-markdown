@@ -1,22 +1,25 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Capture caller's cwd before we cd into the repo (relative paths resolve here).
+CALLER_PWD="$PWD"
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-cd "$ROOT"
 
-if [[ $# -lt 1 ]]; then
-  echo "Usage: $0 /absolute/path/to/file.md|/absolute/path/to/folder" >&2
-  exit 1
-fi
-
-TARGET="$1"
+# No args → open the directory the user ran from.
+TARGET="${1:-$CALLER_PWD}"
 
 if [[ "$TARGET" != /* ]]; then
-  echo "Error: path must be absolute: $TARGET" >&2
-  exit 1
+  TARGET="${CALLER_PWD}/${TARGET}"
 fi
 
-if [[ ! -e "$TARGET" ]]; then
+if [[ -d "$TARGET" ]]; then
+  TARGET="$(cd "$TARGET" && pwd)"
+elif [[ -f "$TARGET" ]]; then
+  TARGET="$(cd "$(dirname "$TARGET")" && pwd)/$(basename "$TARGET")"
+elif [[ -e "$TARGET" ]]; then
+  echo "Error: path must be a .md file or directory: $TARGET" >&2
+  exit 1
+else
   echo "Error: path not found: $TARGET" >&2
   exit 1
 fi
@@ -34,4 +37,5 @@ elif [[ ! -d "$TARGET" ]]; then
   exit 1
 fi
 
+cd "$ROOT"
 npm run start:local -- "$TARGET"

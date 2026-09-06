@@ -55,10 +55,14 @@ npm run start:local -- /absolute/path/to/file.md
 npm run start:local -- /absolute/path/to/folder
 ./tools/only-markdown.sh /absolute/path/to/file.md
 ./tools/only-markdown.sh /absolute/path/to/folder
+# After PATH install (user adds tools/ themselves — we do not edit dotfiles):
+# export PATH="$HOME/mac_files/repos/only-markdown/tools:$PATH"
+only-markdown.sh              # no args → caller's $PWD as folder scope
+only-markdown.sh .            # relative dir
+only-markdown.sh notes.md     # relative .md (resolved against caller cwd)
 ```
 
-`only-markdown.sh` requires an **absolute** path (file `.md` or directory).
-
+`only-markdown.sh` accepts absolute or relative paths (relative → directory the user ran from). No args → that directory as folder scope. Script always passes a resolved absolute path to `start:local`.
 ## API Contract (v0)
 - `GET /api/status` → `{ rootDirectory, lockedFilePath, mode: "file"|"directory" }`
 - `GET /api/list` → `{ directory, files: [{ name, path }] }` — flat `.md` in scope root
@@ -126,7 +130,7 @@ Prior commits on branch (already committed, ahead of origin):
 
 ## Open Follow-ups (Not Started)
 - User may want **configurable** refresh modes later (shortcut-only vs optional auto-watch); v0 is shortcut/button only
-- PATH install docs for `tools/` (Only CSV has `$HOME/repos/.../tools` convention) — not documented yet for this repo
+- User still needs to add `tools/` to PATH manually in their shell rc (documented in README; do not edit their dotfiles)
 - Recurse subfolders in sidebar (explicitly out of v0)
 - Static **build-to-site** / deploy export (deferred; local serve only for now)
 - Frontmatter, Mermaid, math (deferred)
@@ -149,6 +153,13 @@ Append new entries at the top. Keep each entry short and action-focused.
 - Files touched:
 - Verification:
 - Open follow-ups:
+
+### 2026-09-06 ~11:55 UTC-5
+- Agent: Auto (Composer)
+- Summary: `only-markdown.sh` — no args opens caller `$PWD`; relative paths resolve against caller cwd before cd into repo. Documented PATH install (`$HOME/mac_files/repos/only-markdown/tools`) in README; no dotfile changes.
+- Files touched: `tools/only-markdown.sh`, `README.md`, `AGENTS.md`
+- Verification: path-resolve smoke (relative / no-arg / absolute) from outside repo
+- Open follow-ups: user adds PATH line manually; commit when asked
 
 ### 2026-09-06 ~11:46 UTC-5
 - Agent: Auto (Composer)
