@@ -150,6 +150,13 @@ Append new entries at the top. Keep each entry short and action-focused.
 - Verification:
 - Open follow-ups:
 
+### 2026-09-06 ~11:46 UTC-5
+- Agent: Auto (Composer)
+- Summary: Restored markdown list markers — Tailwind Preflight had `list-style: none`; `.markdown-body` now sets disc/decimal + foreground `::marker` color.
+- Files touched: `ui/src/index.css`, `AGENTS.md`
+- Verification: `npm run build:ui` OK
+- Open follow-ups: (unchanged) commit when user asks; configurable refresh; PATH docs; deploy later
+
 ### 2026-09-06 ~09:45 UTC-5
 - Agent: Auto (Composer)
 - Summary: Scaffolded v0 Only Markdown — Express scoped server (8080), markdown-it render + assets, React preview shell with flat folder sidebar and ⌘⇧8 refresh; sample `data/welcome.md`; tools scripts; README. Wrote this AGENTS.md handoff.
