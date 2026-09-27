@@ -1,6 +1,8 @@
 # Only Markdown
 
-Preview markdown as HTML locally. Edit files in your own editor — this app only renders.
+View markdown with custom CSS and HTML locally. Edit files in your 
+own editor — this app only renders. If you work in markdown all day you 
+should use the view that is best for you.
 
 #### v0 scope
 **v0:** point at a `.md` file or folder → open http://localhost:8080 → press `⌘⇧8` (or Refresh) to rebuild the preview. No auto-reload, no in-app editing, no deploy yet.
