@@ -16,7 +16,7 @@ npm install && npm run setup:local   # once (from the repo)
 Once built, to install on PATH (call from any directory) add the repo’s `tools/` directory to your shell PATH. Prefer `$HOME` so the same line works on every machine (do **not** put `~` inside quotes — it will not expand). Add this yourself in `~/.zshrc` / `~/.bashrc` (this project does not modify your dotfiles):
 
 ```bash
-export PATH="$HOME/mac_files/repos/only-markdown/tools:$PATH"
+export PATH="$HOME/repos/only-markdown/tools:$PATH"
 ```
 
 Reload your shell, then:
