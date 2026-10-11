@@ -42,9 +42,7 @@ only-markdown.sh /absolute/path/to/notes.md
 ./tools/only-markdown.sh /absolute/path/to/folder
 ```
 
-For the bundled sample (`./data`), from the repo: `npm run start:local`.
-
-### Build UI
+#### Build UI convenience script
 
 ```bash
 build-only-markdown.sh
